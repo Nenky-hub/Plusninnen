@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a5df3bc382a481bb0805d596b67e25e" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="7.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Агент" Width="1.5" PointX="14.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Аналитик" Width="1.5" PointX="17.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Доставка" Width="1.5" PointX="19" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Заказ_материалов" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Заявка" Width="1.5" PointX="16.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.История" Width="1.5" PointX="19.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.История_поставок" Width="1.5" PointX="10" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Каталог_готовой_продукции" Width="1.5" PointX="12.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Мастер_производства" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Материалы" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Менеджер" Width="1.5" PointX="14.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Поставщик" Width="1.5" PointX="7.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Предложение_для_агента" Width="1.5" PointX="12.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Продукция" Width="1.5" PointX="10" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Склад" Width="1.5" PointX="12.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Смена" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Сотрудники" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Статистика_по_сотруднику" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Точка_подажи" Width="1.5" PointX="17.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Турникет" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Цех" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Агент_Каталог_готовой_продукции" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Агент_Предложение_для_агента" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Заявка_Агент" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_История_Агент" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_История_Аналитик" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Доставка_Заявка" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Заказ_материалов_Мастер_производства" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Заказ_материалов_Материалы" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Заявка_Менеджер" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_История_Точка_подажи" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_История_поставок_Поставщик" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Каталог_готовой_продукции_Продукция" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Мастер_производства_Смена" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Продукция_Поставщик" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Склад_Продукция" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Сотрудники_Смена" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Сотрудники_Цех" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Статистика_по_сотруднику_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Турникет_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Статистика_по_сотруднику_Турникет" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
