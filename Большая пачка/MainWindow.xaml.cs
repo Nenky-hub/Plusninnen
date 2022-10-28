@@ -29,7 +29,7 @@ namespace Большая_пачка
             Manager.MainFrame = MainFrame;
 
             //ImportMaterials();
-            ImportSupplier();
+            //ImportSupplier();
         }
         private void ImportMaterials()
         {
@@ -79,7 +79,7 @@ namespace Большая_пачка
                     Тип_поставщика = data[1],
 
                     ИНН = data[2],
-                    Рейтинг = int.Parse(data[3].Replace(" в рейтинге","" ).Replace("Рейтинг = ","")),
+                    Рейтинг = int.Parse(data[3].Replace("в рейтинге","" ).Replace("Рейтинг = ","")),
                     Дата_начала_работы_с_поставщиком = DateTime.Parse(string.Format("{0:dd-mm-yyyy}", data[4]))
                 };
                 

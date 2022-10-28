@@ -19,7 +19,7 @@ namespace Большая_пачка
         public static Большая_пачкаEntities GetContext()
         {
             if( _context == null ) _context = new Большая_пачкаEntities();
-                    return _context;
+            return _context;
         }
         public Большая_пачкаEntities()
             : base("name=Большая_пачкаEntities")
