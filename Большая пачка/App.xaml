@@ -11,5 +11,6 @@
         <Setter Property="Background" Value="#D32B39" ></Setter>
             
         </Style>
+        
     </Application.Resources>
 </Application>

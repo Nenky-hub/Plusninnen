@@ -15,12 +15,14 @@ namespace Большая_пачка
     
     public partial class Большая_пачкаEntities : DbContext
     {
+
         private static Большая_пачкаEntities _context;
         public static Большая_пачкаEntities GetContext()
         {
-            if( _context == null ) _context = new Большая_пачкаEntities();
+            if (_context == null) _context = new Большая_пачкаEntities();
             return _context;
         }
+
         public Большая_пачкаEntities()
             : base("name=Большая_пачкаEntities")
         {

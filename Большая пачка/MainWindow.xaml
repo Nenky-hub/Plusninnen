@@ -8,25 +8,25 @@
         Title="Большая пачка" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="199*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Background="#FFFFC1C1">
             <TextBlock RenderTransformOrigin="0.813,0.929" Text="Большая пачка" FontFamily="Verdana" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="Back_Button" Content="Назад" HorizontalAlignment="Right" Width="100" Margin="0,0,20,0" Click="Back_Button_Click"/>
 
         </Grid>
-        <Image HorizontalAlignment="Left" Source="/images/Большая пачка.png" RenderTransformOrigin="0.5,0.5" Margin="20,0,0,0" Width="36">
+        <Image HorizontalAlignment="Left" Source="/images/Большая пачка.png"  RenderTransformOrigin="0.5,0.5" Margin="20,0,0,0" Width="36">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
                     <SkewTransform/>
-                    <RotateTransform/>
+                    <RotateTransform Angle="-90"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Frame x:Name="MainFrame" Grid.Row="1" Content="" NavigationUIVisibility="Hidden" Grid.RowSpan="2" ContentRendered="MainFrame_CR" />
+        <Frame x:Name="MainFrame" Grid.Row="1" Content="" NavigationUIVisibility="Hidden" Grid.RowSpan="2" ContentRendered="MainFrame_CR" Background="#FFE4ACAC" />
 
     </Grid>
 </Window>

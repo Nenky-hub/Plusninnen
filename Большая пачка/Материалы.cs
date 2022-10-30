@@ -29,8 +29,10 @@ namespace Большая_пачка
         public Nullable<int> Минимальное_количество { get; set; }
         public Nullable<int> Количество_в_упаковке { get; set; }
         public string Единица_измерения { get; set; }
+        public Nullable<int> ID_Поставщика { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказ_материалов> Заказ_материалов { get; set; }
+        public virtual Поставщик Поставщик { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace Большая_пачка
         public Поставщик()
         {
             this.История_поставок = new HashSet<История_поставок>();
+            this.Материалы = new HashSet<Материалы>();
             this.Продукция = new HashSet<Продукция>();
         }
     
@@ -30,6 +31,8 @@ namespace Большая_пачка
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<История_поставок> История_поставок { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Материалы> Материалы { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Продукция> Продукция { get; set; }
     }
