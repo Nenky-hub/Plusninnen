@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEditWorkShifts.xaml.cs">
+      <DependentUpon>AddEditWorkShifts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllEmployees.xaml.cs">
       <DependentUpon>AllEmployees.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,10 @@
     <Compile Include="Цех.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="AddEditWorkShifts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AllEmployees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

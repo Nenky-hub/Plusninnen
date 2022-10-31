@@ -58,7 +58,7 @@
           <Key>
             <PropertyRef Name="ID_Заказа_материалов" />
           </Key>
-          <Property Name="ID_Заказа_материалов" Type="int" Nullable="false" />
+          <Property Name="ID_Заказа_материалов" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Материалов" Type="int" Nullable="false" />
           <Property Name="Количество материала" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="ID_Мастера" Type="int" Nullable="false" />
@@ -91,7 +91,7 @@
           <Key>
             <PropertyRef Name="ID_Поставок" />
           </Key>
-          <Property Name="ID_Поставок" Type="int" Nullable="false" />
+          <Property Name="ID_Поставок" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Поставщика" Type="int" Nullable="false" />
           <Property Name="Дата поставки" Type="date" Nullable="false" />
         </EntityType>
@@ -99,7 +99,7 @@
           <Key>
             <PropertyRef Name="ID_Каталога" />
           </Key>
-          <Property Name="ID_Каталога" Type="int" Nullable="false" />
+          <Property Name="ID_Каталога" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Продукции" Type="int" />
         </EntityType>
         <EntityType Name="Мастер производства">
@@ -161,7 +161,7 @@
           <Key>
             <PropertyRef Name="ID_Продукции" />
           </Key>
-          <Property Name="ID_Продукции" Type="int" Nullable="false" />
+          <Property Name="ID_Продукции" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Наименование" Type="nchar" MaxLength="10" />
           <Property Name="Тип материала" Type="nchar" MaxLength="10" />
           <Property Name="ID_Поставщика" Type="int" />
@@ -186,14 +186,14 @@
           </Key>
           <Property Name="ID_Смены" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Время начала смены" Type="time" Precision="7" />
-          <Property Name="ID_Мастера" Type="int" />
           <Property Name="Время конца смены" Type="time" Precision="7" />
+          <Property Name="ID_Мастера" Type="int" />
         </EntityType>
         <EntityType Name="Сотрудники">
           <Key>
             <PropertyRef Name="ID_Сотрудника" />
           </Key>
-          <Property Name="ID_Сотрудника" Type="int" Nullable="false" />
+          <Property Name="ID_Сотрудника" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
           <Property Name="Имя" Type="nvarchar" MaxLength="50" />
           <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
@@ -214,7 +214,7 @@
           <Key>
             <PropertyRef Name="ID_Статистики" />
           </Key>
-          <Property Name="ID_Статистики" Type="int" Nullable="false" />
+          <Property Name="ID_Статистики" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Сотрудника" Type="int" />
           <Property Name="ID_Турникета" Type="int" />
           <Property Name="Время входа" Type="time" Precision="7" />
@@ -235,7 +235,7 @@
           <Key>
             <PropertyRef Name="ID_Турникета" />
           </Key>
-          <Property Name="ID_Турникета" Type="int" Nullable="false" />
+          <Property Name="ID_Турникета" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Место" Type="nvarchar" MaxLength="50" />
           <Property Name="Уровень доступа" Type="int" />
         </EntityType>
@@ -243,7 +243,7 @@
           <Key>
             <PropertyRef Name="ID_Цеха" />
           </Key>
-          <Property Name="ID_Цеха" Type="int" Nullable="false" />
+          <Property Name="ID_Цеха" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
           <Property Name="Адрес" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -671,7 +671,7 @@
           <Key>
             <PropertyRef Name="ID_Заказа_материалов" />
           </Key>
-          <Property Name="ID_Заказа_материалов" Type="Int32" Nullable="false" />
+          <Property Name="ID_Заказа_материалов" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Материалов" Type="Int32" Nullable="false" />
           <Property Name="Количество_материала" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ID_Мастера" Type="Int32" Nullable="false" />
@@ -712,7 +712,7 @@
           <Key>
             <PropertyRef Name="ID_Поставок" />
           </Key>
-          <Property Name="ID_Поставок" Type="Int32" Nullable="false" />
+          <Property Name="ID_Поставок" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Поставщика" Type="Int32" Nullable="false" />
           <Property Name="Дата_поставки" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Поставщик" Relationship="Self.FK_История_поставок_Поставщик" FromRole="История_поставок" ToRole="Поставщик" />
@@ -721,7 +721,7 @@
           <Key>
             <PropertyRef Name="ID_Каталога" />
           </Key>
-          <Property Name="ID_Каталога" Type="Int32" Nullable="false" />
+          <Property Name="ID_Каталога" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Продукции" Type="Int32" />
           <NavigationProperty Name="Агент" Relationship="Self.FK_Агент_Каталог_готовой_продукции" FromRole="Каталог_готовой_продукции" ToRole="Агент" />
           <NavigationProperty Name="Продукция" Relationship="Self.FK_Каталог_готовой_продукции_Продукция" FromRole="Каталог_готовой_продукции" ToRole="Продукция" />
@@ -794,7 +794,7 @@
           <Key>
             <PropertyRef Name="ID_Продукции" />
           </Key>
-          <Property Name="ID_Продукции" Type="Int32" Nullable="false" />
+          <Property Name="ID_Продукции" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Наименование" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Тип_материала" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ID_Поставщика" Type="Int32" />
@@ -823,8 +823,8 @@
           </Key>
           <Property Name="ID_Смены" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Время_начала_смены" Type="Time" Precision="7" />
-          <Property Name="ID_Мастера" Type="Int32" />
           <Property Name="Время_конца_смены" Type="Time" Precision="7" />
+          <Property Name="ID_Мастера" Type="Int32" />
           <NavigationProperty Name="Мастер_производства" Relationship="Self.FK_Смена_Мастер_производства" FromRole="Смена" ToRole="Мастер_производства" />
           <NavigationProperty Name="Сотрудники" Relationship="Self.FK_Сотрудники_Смена" FromRole="Смена" ToRole="Сотрудники" />
         </EntityType>
@@ -832,7 +832,7 @@
           <Key>
             <PropertyRef Name="ID_Сотрудника" />
           </Key>
-          <Property Name="ID_Сотрудника" Type="Int32" Nullable="false" />
+          <Property Name="ID_Сотрудника" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -857,7 +857,7 @@
           <Key>
             <PropertyRef Name="ID_Статистики" />
           </Key>
-          <Property Name="ID_Статистики" Type="Int32" Nullable="false" />
+          <Property Name="ID_Статистики" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Сотрудника" Type="Int32" />
           <Property Name="ID_Турникета" Type="Int32" />
           <Property Name="Время_входа" Type="Time" Precision="7" />
@@ -881,7 +881,7 @@
           <Key>
             <PropertyRef Name="ID_Турникета" />
           </Key>
-          <Property Name="ID_Турникета" Type="Int32" Nullable="false" />
+          <Property Name="ID_Турникета" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Место" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Уровень_доступа" Type="Int32" />
           <NavigationProperty Name="Сотрудники" Relationship="Self.FK_Турникет_Сотрудники" FromRole="Турникет" ToRole="Сотрудники" />
@@ -891,7 +891,7 @@
           <Key>
             <PropertyRef Name="ID_Цеха" />
           </Key>
-          <Property Name="ID_Цеха" Type="Int32" Nullable="false" />
+          <Property Name="ID_Цеха" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Адрес" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Сотрудники" Relationship="Self.FK_Сотрудники_Цех" FromRole="Цех" ToRole="Сотрудники" />
@@ -1458,8 +1458,8 @@
               <MappingFragment StoreEntitySet="Смена">
                 <ScalarProperty Name="ID_Смены" ColumnName="ID_Смены" />
                 <ScalarProperty Name="Время_начала_смены" ColumnName="Время начала смены" />
-                <ScalarProperty Name="ID_Мастера" ColumnName="ID_Мастера" />
                 <ScalarProperty Name="Время_конца_смены" ColumnName="Время конца смены" />
+                <ScalarProperty Name="ID_Мастера" ColumnName="ID_Мастера" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

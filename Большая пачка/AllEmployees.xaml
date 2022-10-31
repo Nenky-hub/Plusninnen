@@ -9,8 +9,35 @@
       Title="AllEmployees">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
         <DataGrid x:Name="DataGridEmployees" AutoGenerateColumns="False" IsReadOnly="True">
-            
-        </DataGrid>    
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Фамилия}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Имя}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Отчество}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата_рождения" Binding="{Binding Дата_рождения ,StringFormat=\{0:dd.MM.yyyy\}}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Серия_и_номер_паспорта" Binding="{Binding Серия_и_номер_паспорта}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кем_выдан" Binding="{Binding Кем_выдан}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Место_прописки" Binding="{Binding Место_прописки}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фактическое_место_жительство" Binding="{Binding Фактическое_место_жительство}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Реквизиты" Binding="{Binding Реквизиты}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Семейное_положение" Binding="{Binding Семейное_положение}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Здоровье" Binding="{Binding Здоровье}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Специализация" Binding="{Binding Специализация}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Смена" Binding="{Binding Смена.ID_Смены}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цех" Binding="{Binding Цех.Наименование}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить запись о сотруднике" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center"/>
+        <Button Content="Удалить запись о сотруднике" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center"/>
     </Grid>
 </Page>

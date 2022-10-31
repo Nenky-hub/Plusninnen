@@ -28,7 +28,29 @@ namespace Большая_пачка
 
         private void ButtonEdit_Ckick(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new AddEditWorkShifts((sender as Button).DataContext as Смена));
         }
+
+        private void ButtonAddWorkShifts_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditWorkShifts(null));
+        }
+
+        private void ButtonAllEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AllEmployees());
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Большая_пачкаEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DataGrid_WorkSgifts.ItemsSource = Большая_пачкаEntities.GetContext().Смена.ToList();
+            }
+        }
+
+        
+        
     }
 }

@@ -15,7 +15,6 @@ namespace Большая_пачка
     
     public partial class Большая_пачкаEntities : DbContext
     {
-
         private static Большая_пачкаEntities _context;
         public static Большая_пачкаEntities GetContext()
         {

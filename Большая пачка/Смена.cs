@@ -22,8 +22,8 @@ namespace Большая_пачка
     
         public int ID_Смены { get; set; }
         public Nullable<System.TimeSpan> Время_начала_смены { get; set; }
-        public Nullable<int> ID_Мастера { get; set; }
         public Nullable<System.TimeSpan> Время_конца_смены { get; set; }
+        public Nullable<int> ID_Мастера { get; set; }
     
         public virtual Мастер_производства Мастер_производства { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
