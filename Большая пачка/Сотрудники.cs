@@ -25,7 +25,7 @@ namespace Большая_пачка
         public string Фамилия { get; set; }
         public string Имя { get; set; }
         public string Отчество { get; set; }
-        public string Дата_рождения { get; set; }
+        public Nullable<System.DateTime> Дата_рождения { get; set; }
         public string Серия_и_номер_паспорта { get; set; }
         public string Кем_выдан { get; set; }
         public string Место_прописки { get; set; }

@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace Большая_пачка
 {
     /// <summary>
-    /// Логика взаимодействия для Start_Page.xaml
+    /// Логика взаимодействия для AllEmployees.xaml
     /// </summary>
-    public partial class Start_Page : Page
+    public partial class AllEmployees : Page
     {
-        public Start_Page()
+        public AllEmployees()
         {
             InitializeComponent();
-        }
-
-        private void Materials_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.Navigate(new Materials());
-        }
-
-        private void WorkShifts_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.Navigate(new WorkShifts());
         }
     }
 }

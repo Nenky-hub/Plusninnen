@@ -17,8 +17,8 @@ namespace Большая_пачка
         public int ID_Статистики { get; set; }
         public Nullable<int> ID_Сотрудника { get; set; }
         public Nullable<int> ID_Турникета { get; set; }
-        public string Время_входа { get; set; }
-        public Nullable<System.DateTime> Время_выхода { get; set; }
+        public Nullable<System.TimeSpan> Время_входа { get; set; }
+        public Nullable<System.TimeSpan> Время_выхода { get; set; }
     
         public virtual Сотрудники Сотрудники { get; set; }
         public virtual Турникет Турникет { get; set; }

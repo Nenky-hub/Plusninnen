@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AllEmployees.xaml.cs">
+      <DependentUpon>AllEmployees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Materials.xaml.cs">
       <DependentUpon>Materials.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,9 @@
     </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkShifts.xaml.cs">
+      <DependentUpon>WorkShifts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Агент.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -154,6 +160,10 @@
     <Compile Include="Цех.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="AllEmployees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -171,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Start_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkShifts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
