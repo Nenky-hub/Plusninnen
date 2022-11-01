@@ -28,5 +28,10 @@ namespace Большая_пачка
             //// var _currentEmployees = Большая_пачкаEntities.GetContext().Сотрудники.ToList();
             //_currentEmployees.Дата_рождения = DateTime.Parse(string.Format("{0:dd-mm-yyyy}", _currentEmployees.Дата_рождения));
         }
+
+        private void BtnAddEmployess_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditEmployees());
+        }
     }
 }

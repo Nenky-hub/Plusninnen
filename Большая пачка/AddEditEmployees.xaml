@@ -1,0 +1,60 @@
+﻿<Page x:Class="Большая_пачка.AddEditEmployees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Большая_пачка"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditEmployees">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Фамилия" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" />
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Имя" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="1" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Отчество" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Дата рождения" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="3" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Серия и номер пасорта" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="4" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Кем выдан" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="5" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Место прописки" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="6" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Фактическое место жительство" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Реквизиты" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Семейное положение" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Здоровье" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Специализация" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Цех" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="0,0,20,0"/>
+        <TextBlock FontSize="14" FontFamily="Verdana" Text="Смена" HorizontalAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.Row="6" Grid.Column="2" Margin="0,0,20,0"/>
+
+        <TextBox Text="{Binding Фамилия}" FontFamily="Verdana" FontSize="14" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" />
+        <TextBox Text="{Binding Имя}" FontFamily="Verdana" FontSize="14" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1"/>
+        <TextBox Text="{Binding Отчество}" FontFamily="Verdana" FontSize="14" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="2"/>
+        <DatePicker Text="{Binding Дата_рождения}" FontFamily="Verdana" FontSize="14" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Серия_и_номер_паспорта}" FontFamily="Verdana" FontSize="14" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="4"/>
+        <TextBox Text="{Binding Кем_выдан}" FontFamily="Verdana" FontSize="14" Grid.Column="1" TextWrapping="Wrap" Grid.Row="5" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Место_прописки}" FontFamily="Verdana" FontSize="14" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="6"/>
+        <TextBox Text="{Binding Фактическое_место_жительства}" FontFamily="Verdana" FontSize="14" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Реквизиты}" FontFamily="Verdana" FontSize="14" Grid.Column="3" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1"/>
+        <ComboBox SelectedItem="{Binding Цех}" DisplayMemberPath="Адрес" x:Name="ComboWorkshop" FontFamily="Verdana" FontSize="14" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center"/>
+        <ComboBox x:Name="ComboSmena" FontFamily="Verdana" FontSize="14" Grid.Column="3" Grid.Row="6" VerticalAlignment="Center"/>
+        <ComboBox x:Name="ComboHealth" FontFamily="Verdana" FontSize="14" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center"/>
+        <ComboBox x:Name="ComboMaritalStatus" FontFamily="Verdana" FontSize="14" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center"/>
+        <Button x:Name="ButtonSave" Click="ButtonSave_click" Grid.ColumnSpan="4" Content="Сохранить" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="7" VerticalAlignment="Center" FontSize="24"/>
+        <ComboBox x:Name="ComboSpec" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" FontFamily="Verdana" FontSize="14"/>
+
+    </Grid>
+</Page>
