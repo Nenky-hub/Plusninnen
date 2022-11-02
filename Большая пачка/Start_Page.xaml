@@ -11,6 +11,7 @@
     <Grid>
         <Button x:Name="Materials_Button" Content="Материалы" HorizontalAlignment="Left" Margin="47,225,0,0" VerticalAlignment="Top" Click="Materials_Button_Click"/>
         <Button x:Name="Materials_Button_Copy" Content="Смены" HorizontalAlignment="Left" Margin="212,225,0,0" VerticalAlignment="Top" Click="WorkShifts_Button_Click"/>
+        <Button x:Name="AddEditMats" Content="Радактирование материалов" HorizontalAlignment="Left" Margin="71,277,0,0" VerticalAlignment="Top" Click="AddEditMats_Click"/>
 
     </Grid>
 </Page>

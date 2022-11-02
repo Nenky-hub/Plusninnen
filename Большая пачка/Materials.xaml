@@ -14,23 +14,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <ListView x:Name="LViewMaterials" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False">
-
-            <!--<ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>-->
             <ListView.ItemTemplate>
-
                 <DataTemplate >
-
                     <Grid Margin="20" Width="400">
-                        <!--<Grid.RowDefinitions>
-                            <RowDefinition Height="70"></RowDefinition>
-                            <RowDefinition Height="310"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                        </Grid.RowDefinitions>-->
                         <Image Width="100"  Stretch="UniformToFill" HorizontalAlignment="Left" Margin="5">
                             <Image.Source>
                                 <Binding Path="Изображение">
@@ -40,25 +26,21 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <!--<TextBlock Text="{Binding Тип_материала}" VerticalAlignment="Center" TextAlignment="Center" Width="390"
-                                   TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5 5" FontSize="26" Grid.Row="0"></TextBlock>-->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="120,0,0,0">
                             <TextBlock Text="{Binding Тип_материала}" Grid.Row="3" FontSize="14" VerticalAlignment="Top" />
                             <TextBlock Text="|" Grid.Row="3" FontSize="14"  VerticalAlignment="Top" ></TextBlock>
                             <TextBlock Text="{Binding Наименование_материала}" Grid.Row="3" FontSize="14" VerticalAlignment="Top" ></TextBlock>
-
                             <TextBlock Text="{Binding Количество_на_складе, StringFormat={}  осталось:{0} шт}" Grid.Row="3" FontSize="14"  VerticalAlignment="Top"  />
-
                         </StackPanel>
                         <TextBlock Text="{Binding Минимальное_количество, StringFormat={}Минимальное количество:{0} шт}" Grid.Row="3" FontSize="14"  VerticalAlignment="Center" Margin="120,0,0,0" HorizontalAlignment="Left"  />
                         <TextBlock Text="{Binding Поставщик, StringFormat={}Поставщики:{0} }"  Grid.Row="3" FontSize="14"  VerticalAlignment="Bottom" Margin="120,0,0,0" HorizontalAlignment="Left"  />
-
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ComboBox Name="ComboboxFilter" SelectionChanged="ComboBoxFilte_SelectionChanged"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="230" Margin="0,0,20,0"/>
+        <ComboBox Name="ComboboxFilter" SelectionChanged="ComboBoxFilte_SelectionChanged"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="230" Margin="0,0,30,0"/>
         <ComboBox  Name="ComboboxSort" SelectionChanged="ComboBoxSort_SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230"/>
         <TextBox  Name="TBoxSerch" TextChanged="TBoxSearch_TextChanged" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="230" Margin="20,0,0,0"/>
+
     </Grid>
 </Page>

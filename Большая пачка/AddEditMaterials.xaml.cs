@@ -20,9 +20,97 @@ namespace Большая_пачка
     /// </summary>
     public partial class AddEditMaterials : Page
     {
-        public AddEditMaterials()
+        private Материалы _currentMaterials = new Материалы();
+        public AddEditMaterials( Материалы selectedMaterial)
         {
             InitializeComponent();
+            if( selectedMaterial != null )
+            {
+                _currentMaterials = selectedMaterial;
+            }
+            DataContext = _currentMaterials;
+
+            Combobox_NameMat.ItemsSource = Большая_пачкаEntities.GetContext().Материалы.ToList();
+
+            Combobox_TypeMat.ItemsSource = new List<string> { "Выбрать", "Гранулы", "Нитки", "Краски" };
+            Combobox_TypeMat.SelectedIndex = 0;
+
+            Combobox_Unit.ItemsSource = new List<string> { "Выбрать", "кг","л","м"};
+            Combobox_Unit.SelectedIndex = 0;
+
+            Combobox_Supp.ItemsSource = Большая_пачкаEntities.GetContext().Материалы.ToList();
+            Combobox_Supp.SelectedIndex = 0;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder errors = new StringBuilder();
+            //Наименование материала
+            if (_currentMaterials.Наименование_материала == null)
+            {
+                errors.AppendLine("Укажите наименование материала");
+            }
+
+            //Тип материала
+            if (Combobox_TypeMat.SelectedIndex > 0)
+            {
+                _currentMaterials.Тип_материала = Combobox_TypeMat.SelectedItem.ToString();
+            }
+
+            //Цена
+            if (_currentMaterials.Цена <= 0)
+            {
+                errors.AppendLine("Укажите цену");
+            }
+            //Количество на складе
+            if (_currentMaterials.Количество_на_складе < 0)
+            {
+                errors.AppendLine("Укажите количество на складе");
+            }
+            //Минимальное количество
+            if (_currentMaterials.Минимальное_количество <= 0)
+            {
+                errors.AppendLine("Укажите минимальное количество");
+            }
+            //Количество_в_упаковке
+            if (_currentMaterials.Количество_в_упаковке >=0)
+            {
+                errors.AppendLine("Укажите количество в упаковке");
+            }
+            //Единица измерения
+            if (Combobox_Unit.SelectedIndex > 0)
+            {
+                _currentMaterials.Единица_измерения = Combobox_Unit.SelectedItem.ToString();
+            }
+            errors.AppendLine("Укажите ед. измерения");
+
+            //Поставщик
+            if (_currentMaterials.Поставщик == null)
+            {
+                errors.AppendLine("Укажите поставщика");
+            }
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+            if (_currentMaterials.C_ID_Материалов == 0)
+            {
+                Большая_пачкаEntities.GetContext().Материалы.Add(_currentMaterials);
+            }
+            try
+            {
+                Большая_пачкаEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
+                Manager.MainFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

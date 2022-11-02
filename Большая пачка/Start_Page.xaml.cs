@@ -34,5 +34,10 @@ namespace Большая_пачка
         {
             Manager.MainFrame.Navigate(new WorkShifts());
         }
+
+        private void AddEditMats_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new MaterialsForAddEditView());
+        }
     }
 }

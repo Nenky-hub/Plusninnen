@@ -18,6 +18,7 @@ namespace Большая_пачка
         public Материалы()
         {
             this.Заказ_материалов = new HashSet<Заказ_материалов>();
+            this.Поставщик = new HashSet<Поставщик>();
         }
     
         public int C_ID_Материалов { get; set; }
@@ -33,6 +34,7 @@ namespace Большая_пачка
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказ_материалов> Заказ_материалов { get; set; }
-        public virtual Поставщик Поставщик { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Поставщик> Поставщик { get; set; }
     }
 }

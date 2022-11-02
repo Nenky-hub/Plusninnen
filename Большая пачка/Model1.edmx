@@ -129,6 +129,14 @@
           <Property Name="Единица измерения" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_Поставщика" Type="int" />
         </EntityType>
+        <EntityType Name="Материалы_Поставщики">
+          <Key>
+            <PropertyRef Name="ID_Материала" />
+            <PropertyRef Name="ID_Поставщика" />
+          </Key>
+          <Property Name="ID_Материала" Type="int" Nullable="false" />
+          <Property Name="ID_Поставщика" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Менеджер">
           <Key>
             <PropertyRef Name="ID_Менеджера" />
@@ -391,14 +399,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Материалы_Поставщик">
-          <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="0..1" />
-          <End Role="Материалы" Type="Self.Материалы" Multiplicity="*" />
+        <Association Name="FK_Материалы_Поставщики_Материалы">
+          <End Role="Материалы" Type="Self.Материалы" Multiplicity="1" />
+          <End Role="Материалы_Поставщики" Type="Self.Материалы_Поставщики" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Материалы">
+              <PropertyRef Name="﻿ID_Материалов" />
+            </Principal>
+            <Dependent Role="Материалы_Поставщики">
+              <PropertyRef Name="ID_Материала" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Материалы_Поставщики_Поставщик">
+          <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="1" />
+          <End Role="Материалы_Поставщики" Type="Self.Материалы_Поставщики" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Поставщик">
               <PropertyRef Name="ID_Поставщика" />
             </Principal>
-            <Dependent Role="Материалы">
+            <Dependent Role="Материалы_Поставщики">
               <PropertyRef Name="ID_Поставщика" />
             </Dependent>
           </ReferentialConstraint>
@@ -511,6 +531,7 @@
           <EntitySet Name="Каталог готовой продукции" EntityType="Self.Каталог готовой продукции" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Мастер производства" EntityType="Self.Мастер производства" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Материалы" EntityType="Self.Материалы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Материалы_Поставщики" EntityType="Self.Материалы_Поставщики" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Менеджер" EntityType="Self.Менеджер" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Поставщик" EntityType="Self.Поставщик" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Предложение для агента" EntityType="Self.Предложение для агента" Schema="dbo" store:Type="Tables" />
@@ -570,9 +591,13 @@
             <End Role="Продукция" EntitySet="Продукция" />
             <End Role="Каталог готовой продукции" EntitySet="Каталог готовой продукции" />
           </AssociationSet>
-          <AssociationSet Name="FK_Материалы_Поставщик" Association="Self.FK_Материалы_Поставщик">
-            <End Role="Поставщик" EntitySet="Поставщик" />
+          <AssociationSet Name="FK_Материалы_Поставщики_Материалы" Association="Self.FK_Материалы_Поставщики_Материалы">
             <End Role="Материалы" EntitySet="Материалы" />
+            <End Role="Материалы_Поставщики" EntitySet="Материалы_Поставщики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Материалы_Поставщики_Поставщик" Association="Self.FK_Материалы_Поставщики_Поставщик">
+            <End Role="Поставщик" EntitySet="Поставщик" />
+            <End Role="Материалы_Поставщики" EntitySet="Материалы_Поставщики" />
           </AssociationSet>
           <AssociationSet Name="FK_Продукция_Поставщик" Association="Self.FK_Продукция_Поставщик">
             <End Role="Поставщик" EntitySet="Поставщик" />
@@ -755,7 +780,7 @@
           <Property Name="Единица_измерения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_Поставщика" Type="Int32" />
           <NavigationProperty Name="Заказ_материалов" Relationship="Self.FK_Заказ_материалов_Материалы" FromRole="Материалы" ToRole="Заказ_материалов" />
-          <NavigationProperty Name="Поставщик" Relationship="Self.FK_Материалы_Поставщик" FromRole="Материалы" ToRole="Поставщик" />
+          <NavigationProperty Name="Поставщик" Relationship="Self.Материалы_Поставщики" FromRole="Материалы" ToRole="Поставщик" />
         </EntityType>
         <EntityType Name="Менеджер">
           <Key>
@@ -779,8 +804,8 @@
           <Property Name="Рейтинг" Type="Int32" Nullable="false" />
           <Property Name="Дата_начала_работы_с_поставщиком" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="История_поставок" Relationship="Self.FK_История_поставок_Поставщик" FromRole="Поставщик" ToRole="История_поставок" />
-          <NavigationProperty Name="Материалы" Relationship="Self.FK_Материалы_Поставщик" FromRole="Поставщик" ToRole="Материалы" />
           <NavigationProperty Name="Продукция" Relationship="Self.FK_Продукция_Поставщик" FromRole="Поставщик" ToRole="Продукция" />
+          <NavigationProperty Name="Материалы" Relationship="Self.Материалы_Поставщики" FromRole="Поставщик" ToRole="Материалы" />
         </EntityType>
         <EntityType Name="Предложение_для_агента">
           <Key>
@@ -1052,18 +1077,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Материалы_Поставщик">
-          <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="0..1" />
-          <End Role="Материалы" Type="Self.Материалы" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Поставщик">
-              <PropertyRef Name="ID_Поставщика" />
-            </Principal>
-            <Dependent Role="Материалы">
-              <PropertyRef Name="ID_Поставщика" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Продукция_Поставщик">
           <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="0..1" />
           <End Role="Продукция" Type="Self.Продукция" Multiplicity="*" />
@@ -1148,6 +1161,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Материалы_Поставщики">
+          <End Role="Материалы" Type="Self.Материалы" Multiplicity="*" />
+          <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="Большая_пачкаEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Агент" EntityType="Self.Агент" />
@@ -1223,10 +1240,6 @@
             <End Role="Мастер_производства" EntitySet="Мастер_производства" />
             <End Role="Смена" EntitySet="Смена" />
           </AssociationSet>
-          <AssociationSet Name="FK_Материалы_Поставщик" Association="Self.FK_Материалы_Поставщик">
-            <End Role="Поставщик" EntitySet="Поставщик" />
-            <End Role="Материалы" EntitySet="Материалы" />
-          </AssociationSet>
           <AssociationSet Name="FK_Продукция_Поставщик" Association="Self.FK_Продукция_Поставщик">
             <End Role="Поставщик" EntitySet="Поставщик" />
             <End Role="Продукция" EntitySet="Продукция" />
@@ -1254,6 +1267,10 @@
           <AssociationSet Name="FK_Статистика_по_сотруднику_Турникет" Association="Self.FK_Статистика_по_сотруднику_Турникет">
             <End Role="Турникет" EntitySet="Турникет" />
             <End Role="Статистика_по_сотруднику" EntitySet="Статистика_по_сотруднику" />
+          </AssociationSet>
+          <AssociationSet Name="Материалы_Поставщики" Association="Self.Материалы_Поставщики">
+            <End Role="Материалы" EntitySet="Материалы" />
+            <End Role="Поставщик" EntitySet="Поставщик" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1526,6 +1543,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="Материалы_Поставщики" TypeName="Model.Материалы_Поставщики" StoreEntitySet="Материалы_Поставщики">
+            <EndProperty Name="Материалы">
+              <ScalarProperty Name="C_ID_Материалов" ColumnName="ID_Материала" />
+            </EndProperty>
+            <EndProperty Name="Поставщик">
+              <ScalarProperty Name="ID_Поставщика" ColumnName="ID_Поставщика" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

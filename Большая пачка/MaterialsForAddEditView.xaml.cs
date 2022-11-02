@@ -16,19 +16,15 @@ using System.Windows.Shapes;
 namespace Большая_пачка
 {
     /// <summary>
-    /// Логика взаимодействия для Materials.xaml
+    /// Логика взаимодействия для MaterialsForAddEditView.xaml
     /// </summary>
-    public partial class Materials : Page
+    public partial class MaterialsForAddEditView : Page
     {
-        public Materials()
+        public MaterialsForAddEditView()
         {
             InitializeComponent();
 
-            //var _currentMaterials = Большая_пачкаEntities.GetContext().Материалы.ToList();
-            //LViewMaterials.ItemsSource = _currentMaterials;
-
-
-            ComboboxFilter.ItemsSource = new List<string> { "Все типы","Гранулы", "Краски", "Нитки" };
+            ComboboxFilter.ItemsSource = new List<string> { "Все типы", "Гранулы", "Краски", "Нитки" };
             ComboboxFilter.SelectedIndex = 0;
 
             ComboboxSort.ItemsSource = new List<string> { "Все типы", "По названию", "Количеству на складе", "Минимальное количество в упаковке" };
@@ -51,10 +47,10 @@ namespace Большая_пачка
             {
                 //_currentMaterials = _currentMaterials.Where(p => (bool)p.IsActual).ToList();
 
-                if (ComboboxSort.SelectedItem.ToString()== "По названию")
+                if (ComboboxSort.SelectedItem.ToString() == "По названию")
                 {
                     _currentMaterials = _currentMaterials.OrderBy(p => p.Наименование_материала).ToList();
-                }    
+                }
                 else if (ComboboxSort.SelectedItem.ToString() == "Количеству на складе")
                 {
                     _currentMaterials = _currentMaterials.OrderBy(p => p.Количество_на_складе).ToList();
@@ -66,15 +62,8 @@ namespace Большая_пачка
 
             }
 
-            LViewMaterials.ItemsSource = _currentMaterials;
+            DataGridMaterials.ItemsSource = _currentMaterials;
         }
-
-        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateMaterials();
-        }
-
-      
         private void ComboBoxFilte_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateMaterials();
@@ -85,9 +74,28 @@ namespace Большая_пачка
             UpdateMaterials();
         }
 
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateMaterials();
+        }
+
+        private void ButtonEdit_Ckick(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditMaterials((sender as Button).DataContext as Материалы));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Большая_пачкаEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DataGridMaterials.ItemsSource = Большая_пачкаEntities.GetContext().Материалы.ToList();
+            }
+        }
+
         private void AddMaterials_click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditMaterials((sender as Button).DataContext as  Материалы));
+            Manager.MainFrame.Navigate(new AddEditMaterials(null));
         }
     }
 }

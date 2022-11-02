@@ -4,29 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="231a9c45c57d4da798bbea9c1fab10c4" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Агент" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Аналитик" Width="1.5" PointX="11.25" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Доставка" Width="1.5" PointX="12.75" PointY="19.375" IsExpanded="true" />
+      <Diagram DiagramId="65b2b76317d54a60b80e9d2535b4b20d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="2.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Агент" Width="1.5" PointX="9.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Аналитик" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Доставка" Width="1.5" PointX="14.25" PointY="20.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Заказ_материалов" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Заявка" Width="1.5" PointX="10.5" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.История" Width="1.5" PointX="13.5" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.История_поставок" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Каталог_готовой_продукции" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Заявка" Width="1.5" PointX="12" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.История" Width="1.5" PointX="15" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.История_поставок" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Каталог_готовой_продукции" Width="1.5" PointX="7.5" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Мастер_производства" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Материалы" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Менеджер" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Поставщик" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Предложение_для_агента" Width="1.5" PointX="6" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Продукция" Width="1.5" PointX="3.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Склад" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Менеджер" Width="1.5" PointX="9.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Поставщик" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Предложение_для_агента" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Продукция" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Склад" Width="1.5" PointX="7.5" PointY="20" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Смена" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Сотрудники" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Статистика_по_сотруднику" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Точка_подажи" Width="1.5" PointX="11.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Точка_подажи" Width="1.5" PointX="12.75" PointY="23.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Турникет" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Цех" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Цех" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_Агент_Каталог_готовой_продукции" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Агент_Предложение_для_агента" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Заявка_Агент" ManuallyRouted="false" />
@@ -40,7 +40,6 @@
         <AssociationConnector Association="Model.FK_История_поставок_Поставщик" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Каталог_готовой_продукции_Продукция" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Смена_Мастер_производства" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Материалы_Поставщик" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Продукция_Поставщик" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Склад_Продукция" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Сотрудники_Смена" ManuallyRouted="false" />
@@ -48,6 +47,7 @@
         <AssociationConnector Association="Model.FK_Статистика_по_сотруднику_Сотрудники" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Турникет_Сотрудники" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Статистика_по_сотруднику_Турникет" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Материалы_Поставщики" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

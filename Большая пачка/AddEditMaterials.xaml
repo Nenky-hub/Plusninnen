@@ -9,6 +9,40 @@
       Title="AddEditMaterials">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Text="Наименование материала"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="1" Text="Тип материала"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="2" Text="Изображение"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="3" Text="Цена"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="4" Text="Количество на складе"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="5" Text="Минимальное количество"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="6" Text="Количество в упаковке"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="7" Text="Единица измерения"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0" Grid.Row="8" Text="Поставщик"/>
+        <Button    HorizontalAlignment="Left" Click="Button_Click" VerticalAlignment="Center" Margin="20,0,0,0" Grid.Row="9" Content="Сохранить"  Grid.Column="1" FontSize="22"/>
+        <ComboBox x:Name="Combobox_NameMat" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" ItemsSource="{Binding Наименование_материала}" DisplayMemberPath="Наименование материала"/>
+        <ComboBox x:Name="Combobox_TypeMat" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" Grid.Row="1"/>
+        <ComboBox x:Name="Combobox_Unit"    Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" Grid.Row="7"/>
+        <ComboBox x:Name="Combobox_Supp"    Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" Grid.Row="8" ItemsSource="{Binding Поставщик}" DisplayMemberPath="Наименование"/>
+        <TextBox x:Name="Price_TextBox" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" FontFamily="Verdana" FontSize="14" Text="{Binding Цена}"/>
+        <TextBox x:Name="InStock_TextBox" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" FontFamily="Verdana" FontSize="14" Text="{Binding Количество_на_складе}"/>
+        <TextBox x:Name="MinimalAmount_TextBox" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" FontFamily="Verdana" FontSize="14" Text="{Binding Минимальное_количество}"/>
+        <TextBox x:Name="Amount_package_TextBox" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Width="250" Margin="30,0,0,0" FontFamily="Verdana" FontSize="14" Text="{Binding Количество_в_упаковке}"/>
+       
     </Grid>
 </Page>
