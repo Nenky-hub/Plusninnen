@@ -21,20 +21,28 @@ namespace Большая_пачка
     public partial class AddEditEmployees : Page
     {
         private Сотрудники _currentAmployees = new Сотрудники();
-        public AddEditEmployees()
+        public AddEditEmployees(Сотрудники selectedsmena)
         {
             InitializeComponent();
+            if(selectedsmena != null)
+            {
+                _currentAmployees = selectedsmena;
+            }
+            DataContext = _currentAmployees;
             //
-            ComboMaritalStatus.ItemsSource = new List<string> {"Разведен","В браке","Вдовец"};
+            ComboWorkshop.ItemsSource = Большая_пачкаEntities.GetContext().Цех.ToList();
+            ComboWorkshop.SelectedIndex = 0;
+            //
+            ComboMaritalStatus.ItemsSource = new List<string> { "Выбрать","Разведен","В браке","Вдовец"};
             ComboMaritalStatus.SelectedIndex = 0;
             //
-            ComboHealth.ItemsSource = new List<string> { "Здоров", "На больничном" };
+            ComboHealth.ItemsSource = new List<string> { "Выбрать", "Здоров", "На больничном" };
             ComboHealth.SelectedIndex = 0;
             //
-            ComboSpec.ItemsSource = new List<string> {"Сортировщик"};
+            ComboSpec.ItemsSource = new List<string> {"Выбрать","Сортировщик"};
             ComboSpec.SelectedIndex = 0;
             //
-            ComboSmena.ItemsSource = new List<string> {"Первая смена","Вторая смена","Третья смена"};
+            ComboSmena.ItemsSource = new List<string> { "Выбрать", "Первая смена", "Вторая смена", "Третья смена" };
             ComboSmena.SelectedIndex = 0;
             //
         }
@@ -57,14 +65,15 @@ namespace Большая_пачка
                 errors.AppendLine("Укажите отчество");
             }
             //Дата рождения
-            if (_currentAmployees == null)
+            if (DateBirthday.SelectedDate == null)
             {
-                errors.AppendLine("Укажите время начала смены");
+                errors.AppendLine("Укажите дату рождения");
             }
+            else _currentAmployees.Дата_рождения = DateBirthday.SelectedDate;
             //Серия и номер пасорта
-            if (_currentAmployees == null)
+            if (string.IsNullOrWhiteSpace(_currentAmployees.Серия_и_номер_паспорта))
             {
-                errors.AppendLine("Укажите время конца смены");
+                errors.AppendLine("Укажите серию иномер паспорта");
             }
             //Кем выдан
             if (_currentAmployees == null)
@@ -72,23 +81,59 @@ namespace Большая_пачка
                 errors.AppendLine("Укажите мастера");
             }
             //Место прописки
-
+            if (string.IsNullOrWhiteSpace(_currentAmployees.Место_прописки))
+            {
+                errors.AppendLine("Укажите фактическое место прописки");
+            }
             //Фактическое место жительство
-
+            if (string.IsNullOrWhiteSpace(_currentAmployees.Фактическое_место_жительство))
+            {
+                errors.AppendLine("Укажите фактическое место жительства");
+            }
             //Реквизиты
-
+            if (string.IsNullOrWhiteSpace(_currentAmployees.Реквизиты))
+            {
+                errors.AppendLine("Укажите реквизиты");
+            }
             //Семейное положение
-
+            if (ComboMaritalStatus.SelectedIndex > 0)
+            {
+                _currentAmployees.Семейное_положение = ComboMaritalStatus.SelectedItem.ToString();
+            }
+            else errors.AppendLine("Укажите семейное положение");
             //Здоровье
+            if (ComboHealth.SelectedIndex > 0)
+            {
+                _currentAmployees.Здоровье = ComboHealth.SelectedItem.ToString();
+            }
+            else errors.AppendLine("Укажите здоровье");
+            //Специализация
+            if (ComboSpec.SelectedIndex > 0)
+            {
+                _currentAmployees.Специализация = ComboSpec.SelectedItem.ToString();
+            }
+            else errors.AppendLine("Укажите специализацию");
+            //Цех
+            if (_currentAmployees.Цех == null)
+            {
+                errors.AppendLine("Укажите цех");
+            }
+            //Смена
+            if(ComboSmena.SelectedIndex > 0)
+            {
+                _currentAmployees.ID_Смены = ComboSmena.SelectedIndex;
+            }
+            else errors.AppendLine("Укажите смену");
+            
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
 
-            if (_currentWorkShifts.ID_Смены == 0)
+            if (_currentAmployees.ID_Сотрудника == 0)
             {
-                Большая_пачкаEntities.GetContext().Смена.Add(_currentWorkShifts);
+                Большая_пачкаEntities.GetContext().Сотрудники.Add(_currentAmployees);
             }
             try
             {

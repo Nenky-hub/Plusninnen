@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Большая_пачка"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AllEmployees">
+      Title="AllEmployees" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -35,9 +35,16 @@
                 <DataGridTextColumn Header="Специализация" Binding="{Binding Специализация}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Смена" Binding="{Binding Смена.ID_Смены}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Цех" Binding="{Binding Цех.Наименование}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="ButtonEddit" Click="ButtonEdit_Ckick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BtnAddEmployess"  Content="Добавить запись о сотруднике" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Margin="20,0,0,0" Click="BtnAddEmployess_Click"/>
-        <Button Content="Удалить запись о сотруднике" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,20,0"/>
+        <Button Content="Удалить запись о сотруднике" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,20,0" Click="Button_Click"/>
     </Grid>
 </Page>
