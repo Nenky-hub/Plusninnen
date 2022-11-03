@@ -25,7 +25,7 @@ namespace Большая_пачка
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Start_Page());
+            MainFrame.Navigate(new Autorization());
             Manager.MainFrame = MainFrame;
 
             //ImportMaterials();

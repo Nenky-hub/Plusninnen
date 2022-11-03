@@ -30,7 +30,7 @@ namespace Большая_пачка
             }
             DataContext = _currentMaterials;
 
-            Combobox_NameMat.ItemsSource = Большая_пачкаEntities.GetContext().Материалы.ToList();
+            Combobox_NameMat.ItemsSource = new List<string> { "Выбрать", "Гранулы белый 2x2", "Нить серый 1x0", "Краска синий 2x2" };  /*Большая_пачкаEntities.GetContext().Материалы.ToList();*/
 
             Combobox_TypeMat.ItemsSource = new List<string> { "Выбрать", "Гранулы", "Нитки", "Краски" };
             Combobox_TypeMat.SelectedIndex = 0;
@@ -38,8 +38,8 @@ namespace Большая_пачка
             Combobox_Unit.ItemsSource = new List<string> { "Выбрать", "кг","л","м"};
             Combobox_Unit.SelectedIndex = 0;
 
-            Combobox_Supp.ItemsSource = Большая_пачкаEntities.GetContext().Материалы.ToList();
-            Combobox_Supp.SelectedIndex = 0;
+            //Combobox_Supp.ItemsSource = Большая_пачкаEntities.GetContext().Материалы.ToList();
+            //Combobox_Supp.SelectedIndex = 0;
 
         }
 
@@ -47,10 +47,11 @@ namespace Большая_пачка
         {
             StringBuilder errors = new StringBuilder();
             //Наименование материала
-            if (_currentMaterials.Наименование_материала == null)
+            if (Combobox_NameMat.SelectedIndex == 0)
             {
                 errors.AppendLine("Укажите наименование материала");
             }
+            else _currentMaterials.Наименование_материала = Combobox_NameMat.SelectedItem.ToString();
 
             //Тип материала
             if (Combobox_TypeMat.SelectedIndex > 0)
@@ -74,22 +75,22 @@ namespace Большая_пачка
                 errors.AppendLine("Укажите минимальное количество");
             }
             //Количество_в_упаковке
-            if (_currentMaterials.Количество_в_упаковке >=0)
+            if (_currentMaterials.Количество_в_упаковке <=0)
             {
                 errors.AppendLine("Укажите количество в упаковке");
             }
             //Единица измерения
-            if (Combobox_Unit.SelectedIndex > 0)
+            if (Combobox_Unit.SelectedIndex == 0)
             {
-                _currentMaterials.Единица_измерения = Combobox_Unit.SelectedItem.ToString();
+                errors.AppendLine("Укажите ед. измерения");
             }
-            errors.AppendLine("Укажите ед. измерения");
+           else  _currentMaterials.Единица_измерения = Combobox_Unit.SelectedItem.ToString();
 
-            //Поставщик
-            if (_currentMaterials.Поставщик == null)
-            {
-                errors.AppendLine("Укажите поставщика");
-            }
+            ////Поставщик
+            //if (_currentMaterials.Поставщик == null)
+            //{
+            //    errors.AppendLine("Укажите поставщика");
+            //}
 
             if (errors.Length > 0)
             {

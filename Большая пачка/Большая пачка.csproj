@@ -79,6 +79,9 @@
     <Compile Include="AllEmployees.xaml.cs">
       <DependentUpon>AllEmployees.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autorization.xaml.cs">
+      <DependentUpon>Autorization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Materials.xaml.cs">
       <DependentUpon>Materials.xaml</DependentUpon>
     </Compile>
@@ -185,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AllEmployees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

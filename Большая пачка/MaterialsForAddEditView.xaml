@@ -10,32 +10,31 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" MinHeight="50"></RowDefinition>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGridMaterials" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+        <DataGrid x:Name="DataGridMaterials" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Тип материала" Binding="{Binding Фамилия}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Наименование материала" Binding="{Binding Имя}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Количество на складе" Binding="{Binding Отчество}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Минимальное количество" Binding="{Binding Дата_рождения ,StringFormat=\{0:dd.MM.yyyy\}}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Поставщикк" Binding="{Binding Серия_и_номер_паспорта}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип материала" Binding="{Binding Тип_материала}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование материала" Binding="{Binding Наименование_материала}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество на складе" Binding="{Binding Количество_на_складе}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Минимальное количество" Binding="{Binding Минимальное_количество}" Width="*"></DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Поставщикк" Binding="{Binding Поставщик}" Width="*"></DataGridTextColumn>-->
                 <!--<DataGridTextColumn Header="Изображение" Binding="{Binding Изображение}" Width="*">-->
-                <DataGridTemplateColumn Width="auto" >
+                <!--<DataGridTemplateColumn Width="auto" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Редактировать" Name="ButtonEddit" Click="ButtonEdit_Ckick"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
 
-        <ComboBox Name="ComboboxFilter" SelectionChanged="ComboBoxFilte_SelectionChanged"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Margin="550,0,0,0"/>
+        <!--<ComboBox Name="ComboboxFilter" SelectionChanged="ComboBoxFilte_SelectionChanged"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Margin="550,0,0,0"/>
         <ComboBox  Name="ComboboxSort" SelectionChanged="ComboBoxSort_SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230"/>
-        <TextBox  Name="TBoxSerch" TextChanged="TBoxSearch_TextChanged" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="230" Margin="20,0,0,0"/>
+        <TextBox  Name="TBoxSerch" TextChanged="TBoxSearch_TextChanged" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="230" Margin="20,0,0,0"/>-->
 
-        <Button x:Name="AddMaterials" Click="AddMaterials_click" Content="Добавить материалы" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
+        <Button x:Name="AddMaterials" Click="AddMaterials_click" Content="Добавить материалы" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
     </Grid>
 </Page>
